@@ -5,16 +5,15 @@ class Node {
   }
 }
 
-export class linkedList {
+export class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
   }
 
-  append(key, value){
-
-    const newNode = new Node;
-    newNode.data = {key, value};
+  append(key, value) {
+    const newNode = new Node();
+    newNode.data = { key, value };
 
     if (this.tail === null) this.head = newNode;
     else this.tail.nextNode = newNode;
@@ -22,80 +21,82 @@ export class linkedList {
     this.tail = newNode;
   }
 
-  getValue(key){
+  getValue(key) {
     let curNode = this.head;
 
-    while (curNode !== null){
-        if (curNode.key === key) return curNode.value;
-        curNode = curNode.nextNode;
+    while (curNode !== null) {
+      if (curNode.data.key === key) return curNode.data.value;
+      curNode = curNode.nextNode;
     }
 
     return undefined;
   }
 
-  removeNode(key){
+  removeNode(key) {
     let prevNode = null;
     let curNode = this.head;
 
-    while(curNode !== null){
-        if (curNode.key === key){
-            if (prevNode === null) this.head = curNode.nextNode;
-            else prevNode.nextNode = curNode.nextNode;
+    while (curNode !== null) {
+      if (curNode.data.key === key) {
+        if (prevNode === null) this.head = curNode.nextNode;
+        else prevNode.nextNode = curNode.nextNode;
 
-            return true;
-        }
-        prevNode = curNode;
-        curNode = curNode.nextNode;
+        if (curNode === this.tail) this.tail = prevNode;
+
+        return true;
+      }
+      prevNode = curNode;
+      curNode = curNode.nextNode;
     }
 
     return false;
   }
 
-  change(key, value){
+  change(key, value) {
     let curNode = this.head;
 
-    while (curNode !== null){
-        if (curNode.key === key){
-            curNode.value = value;
-            return;
-        }
-        curNode = curNode.nextNode;
+    while (curNode !== null) {
+      if (curNode.data.key === key) {
+        curNode.data.value = value;
+        return;
+      }
+      curNode = curNode.nextNode;
     }
 
     return;
   }
 
-  getKeys(){
+  getKeys() {
     let curNode = this.head;
     const keys = [];
 
-    while (curNode !== null){
-        keys.push(curNode.key);
-        curNode = curNode.nextNode;
+    while (curNode !== null) {
+      keys.push(curNode.data.key);
+      curNode = curNode.nextNode;
     }
 
     return keys;
   }
 
-  getValues(){
+  getValues() {
     let curNode = this.head;
     const values = [];
 
-    while (curNode !== null){
-        values.push(curNode.value);
-        curNode = curNode.nextNode;
+    while (curNode !== null) {
+      values.push(curNode.data.value);
+      curNode = curNode.nextNode;
     }
 
     return values;
   }
 
-  getEntries(){
+  getEntries() {
     let curNode = this.head;
     const entries = [];
 
-    while (curNode !== null){
-        entries.push([curNode.key, curNode.value]);
-        curNode = curNode.nextNode;
+    while (curNode !== null) {
+      entries.push([curNode.data.key, curNode.data.value]);
+      curNode = curNode.nextNode;
     }
 
     return entries;
