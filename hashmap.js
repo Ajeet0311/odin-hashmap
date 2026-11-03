@@ -80,4 +80,26 @@ class hashmap {
 
     return keys;
   }
+
+  values(){
+    const values = [];
+    for (let i = 0; i < this.capacity; i++){
+        if (this.arr[i] !== undefined){
+            values = [...this.arr[i].getValues()];
+        }
+    }
+
+    return values;
+  }
+
+  entries(){
+    const entries = [];
+    for (let i = 0; i < this.capacity; i++){
+        if (this.arr[i] !== undefined){
+            entries = [...this.arr[i].getEntries()];
+        }
+    }
+
+    return entries;
+  }
 }

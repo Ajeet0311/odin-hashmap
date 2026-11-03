@@ -76,4 +76,28 @@ export class linkedList {
 
     return keys;
   }
+
+  getValues(){
+    let curNode = this.head;
+    const values = [];
+
+    while (curNode !== null){
+        values.push(curNode.value);
+        curNode = curNode.nextNode;
+    }
+
+    return values;
+  }
+
+  getEntries(){
+    let curNode = this.head;
+    const entries = [];
+
+    while (curNode !== null){
+        entries.push([curNode.key, curNode.value]);
+        curNode = curNode.nextNode;
+    }
+
+    return entries;
+  }
 }
