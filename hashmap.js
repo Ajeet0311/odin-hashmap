@@ -54,6 +54,14 @@ class hashmap {
 
     if (this.arr[bucket] === undefined) return false;
 
-    return this.arr[bucket].removeNode(key);
+    if (this.arr[bucket].removeNode(key)){
+        this.pairs--;
+        return true;
+    }
+    else return false;
+  }
+
+  length(){
+    return this.pairs;
   }
 }
