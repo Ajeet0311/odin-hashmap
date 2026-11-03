@@ -34,6 +34,9 @@ class hashmap {
 
     // to do:
     // add growth logic when pair count exceeds loadFactor*capacity
+    if (this.pairs > Math.floor(this.loadFactor*this.capacity)){
+        this.resize();
+    }
   }
 
   get(key){
@@ -101,5 +104,17 @@ class hashmap {
     }
 
     return entries;
+  }
+
+  resize(){
+    const oldArr = this.entries();
+
+    this.clear();
+    this.capacity *= 2;
+
+    // reallocate every mapping new buckets
+    for (let i = 0; i < oldArr.size(); i++){
+        this.set(oldArr[0], oldArr[1]);
+    }
   }
 }
