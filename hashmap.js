@@ -5,6 +5,7 @@ class hashmap {
     this.loadFactor = 0.75;
     this.capacity = 16;
     this.arr = [];
+    this.pairs = 0;
   }
 
   hash(key) {
@@ -16,5 +17,17 @@ class hashmap {
     }
 
     return hashCode;
+  }
+
+  set(key, value){
+    const bucket = this.hash(key);
+
+    if (this.arr[bucket] === undefined) this.arr[bucket] = new linkedList;
+
+    this.arr[bucket].append(key, value);
+    this.pairs++;
+
+    // to do:
+    // add growth logic when pair count exceeds loadFactor*capacity
   }
 }
