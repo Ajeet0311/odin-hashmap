@@ -32,4 +32,22 @@ export class linkedList {
 
     return undefined;
   }
+
+  removeNode(key){
+    let prevNode = null;
+    let curNode = this.head;
+
+    while(curNode !== null){
+        if (curNode.key === key){
+            if (prevNode === null) this.head = curNode.nextNode;
+            else prevNode.nextNode = curNode.nextNode;
+
+            return true;
+        }
+        prevNode = curNode;
+        curNode = curNode.nextNode;
+    }
+
+    return false;
+  }
 }

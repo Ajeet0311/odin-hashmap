@@ -43,4 +43,12 @@ class hashmap {
     if (this.get(key) === undefined) return false;
     else return true;
   }
+
+  remove(key){
+    const bucket = this.hash(key);
+
+    if (this.arr[bucket] === undefined) return false;
+
+    return this.arr[bucket].removeNode(key);
+  }
 }
