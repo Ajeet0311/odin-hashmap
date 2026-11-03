@@ -38,4 +38,9 @@ class hashmap {
 
     return this.arr[bucket].getValue(key);
   }
+
+  has(key){
+    if (this.get(key) === undefined) return false;
+    else return true;
+  }
 }
