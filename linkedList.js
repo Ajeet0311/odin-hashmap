@@ -21,4 +21,15 @@ export class linkedList {
 
     this.tail = newNode;
   }
+
+  getValue(key){
+    let curNode = this.head;
+
+    while (curNode !== null){
+        if (curNode.key === key) return curNode.value;
+        curNode = curNode.nextNode;
+    }
+
+    return undefined;
+  }
 }

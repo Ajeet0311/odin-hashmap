@@ -30,4 +30,12 @@ class hashmap {
     // to do:
     // add growth logic when pair count exceeds loadFactor*capacity
   }
+
+  get(key){
+    const bucket = this.hash(key);
+
+    if (this.arr[bucket] === undefined) return undefined;
+
+    return this.arr[bucket].getValue(key);
+  }
 }
