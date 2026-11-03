@@ -64,4 +64,20 @@ class hashmap {
   length(){
     return this.pairs;
   }
+
+  clear(){
+    this.arr = [];
+    this.pairs = 0;
+  }
+
+  keys(){
+    const keys = [];
+    for (let i = 0; i < this.capacity; i++){
+        if (this.arr[i] !== undefined){
+            keys = [...this.arr[i].getKeys()];
+        }
+    }
+
+    return keys;
+  }
 }
