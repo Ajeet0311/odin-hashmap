@@ -24,8 +24,13 @@ class hashmap {
 
     if (this.arr[bucket] === undefined) this.arr[bucket] = new linkedList;
 
-    this.arr[bucket].append(key, value);
-    this.pairs++;
+    if (this.has(key)){
+        this.arr[bucket].change(key, value);
+    }
+    else{
+        this.arr[bucket].append(key, value);
+        this.pairs++;
+    }
 
     // to do:
     // add growth logic when pair count exceeds loadFactor*capacity

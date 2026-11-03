@@ -50,4 +50,18 @@ export class linkedList {
 
     return false;
   }
+
+  change(key, value){
+    let curNode = this.head;
+
+    while (curNode !== null){
+        if (curNode.key === key){
+            curNode.value = value;
+            return;
+        }
+        curNode = curNode.nextNode;
+    }
+
+    return;
+  }
 }
